@@ -27,7 +27,21 @@ def  escape_bridge(choice=None):
         print("you die as pieces since bridge breaks down")
         return "die"
     
-
+def fight(s,choice=None):
+    print("you will face the lions and tigers that escaped from the zoo")
+    if choice==None:
+        choice=input("fight or flee")
+    if choice=="fight" and s=="hammer":
+        print("your hammer is not sharp enough, so you die")
+        return "die"
+    elif choice=="fight" and s=="knife":
+        print(" you defeat the animals and you win")
+        return "survive"
+    else:
+        print("if you choose to flee, as you are running away, the animal catches you and you die")
+        return "die"
+    
+                
 
 
 def test_suite():
@@ -37,6 +51,12 @@ def test_suite():
     test(startgame("hammer") == "hammer")
     test(escape_bridge("away") == "survive")
     test(escape_bridge("under") == "die")
+    
+    test(fight("hammer", "flee") == "die")
+    test(fight("knife", "flee") == "die")   
+    test(fight("knife", "fight") == "survive")
+    test(fight("hammer", "fight") == "die")
+    
 def main ():
     stuff=""
     if startgame()=="knife":
@@ -45,9 +65,13 @@ def main ():
     else:
         stuff="hammer"
     if escape_bridge()=="survive":
-        fight()
+        if fight(stuff)=="survive":
+            print("congradulation you won")
+        else:
+            print("you die, start again")
+            main()
     else:
         main()
      
-#test_suite()
+test_suite()
 main()
