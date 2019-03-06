@@ -40,9 +40,14 @@ def fight(s,choice=None):
     else:
         print("if you choose to flee, as you are running away, the animal catches you and you die")
         return "die"
-    
-                
-
+def battle():
+    import random
+    while True:
+        rng = random.Random()    
+        #Pick a random number between -1 and 1
+        result = rng.randrange(-1,2)
+        print( "winner={0}".format( result))
+        return result
 
 def test_suite():
     """ Run the suite of tests for code in this module (this file).
@@ -73,5 +78,6 @@ def main ():
     else:
         main()
      
-test_suite()
-main()
+##test_suite()
+#main()
+battle()        
