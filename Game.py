@@ -35,8 +35,13 @@ def fight(s,choice=None):
         print("your hammer is not sharp enough, so you die")
         return "die"
     elif choice=="fight" and s=="knife":
-        print(" you defeat the animals and you win")
-        return "survive"
+        winner=battle()
+        if winner=="-1"
+            print("you defeat the animals and you win")
+            return "survive"
+        elif winner==1
+            print(" the animals kill you and you die")
+            return "you die, play again"
     else:
         print("if you choose to flee, as you are running away, the animal catches you and you die")
         return "die"
@@ -78,6 +83,6 @@ def main ():
     else:
         main()
      
-##test_suite()
-#main()
-battle()        
+#test_suite()
+main()
+#battle()        
